@@ -1,0 +1,52 @@
+<head>
+    <title>pigeons</title>
+</head>
+
+<template name="layout">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span7">
+                <h1>Pigeon <br/><small>The very simple management system by <a href="http://www.welld.ch" target="_blank">WellD</a></small></h1>
+            </div>
+            <div class="span5">
+                <div style="float:right">
+                    {{loginButtons align="right"}}
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            {{#if currentUser}}
+                <div class="span12">
+                    <ul class="nav nav-pills" id="main-top-menu">
+
+                        <li id="home-menu" class="{{#if active_home}}active{{/if}}"><a href="{{pathFor 'home'}}">Home</a></li>
+
+                        <li id="profile-menu" class="{{#if active_profile}}active{{/if}}"><a href="{{pathFor 'profile' currentUser}}">Profile</a></li>
+
+                    </ul>
+                    <hr/>
+                </div>
+            {{/if}}
+        </div>
+        <div class="row-fluid">
+            {{yield}}
+        </div>
+    </div>
+</template>
+
+
+
+
+<template name="loading">
+    {{>spinner}}
+</template>
+
+<template name="notFound">
+    Sorry man! 404!
+</template>
+
+<template name="login">
+
+        <h3 class="alert-danger">Please login to proceed.</h3>
+
+</template>

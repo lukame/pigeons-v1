@@ -1,0 +1,37 @@
+<template name="profile">
+
+        <div class="row-fluid">
+            <div class="span3">
+                <h2>User data</h2>
+                <ul class="unstyled">
+
+                    <li><label>First name:</label><input class="span8" type="text" name="firstname" placeholder="First name" value="{{currentUser.firstname}}" id="firstname" /></li>
+                    <li><label>Last name:</label><input class="span8" type="text" name="lastname" placeholder="Last name" value="{{currentUser.lastname}}" id="lastname" /></li>
+                    <li>
+                        Select file(s) to upload:
+                        <input name="files" type="file" class="fileUploader" multiple>
+                    </li>
+
+                    <li>
+                        <ul>
+                            {{#each files}}
+                            <li>{{cfsDownloadButton "users" class="btn btn-primary btn-mini" content=filename}}</li>
+                            {{else}}
+                            <li>No files uploaded.</li>
+                            {{/each}}
+                        </ul>
+                    </li>
+
+
+                </ul>
+                <button class="btn btn-success" id="save-profile">Save</button>
+            </div>
+         </div>
+
+</template>
+
+
+
+
+
+
